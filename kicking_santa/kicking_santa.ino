@@ -1,9 +1,8 @@
 #include <Servo.h>
 
-#define TRIGGER 3
+#define TRIGGER 5
 #define FIRE_LED 6
-#define FIRE_FAN 10
-#define AUDIO 5
+#define FIRE_FAN 8
 #define LEGS 9
 
 // the setup function runs once when you press reset or power the board
