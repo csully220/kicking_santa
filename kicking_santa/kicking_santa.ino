@@ -11,7 +11,8 @@ Servo legs;
 bool start_seq = false;
 
 void setup() {
-  pinMode(TRIGGER, INPUT);
+  Serial.begin(9600);
+  pinMode(TRIGGER, INPUT_PULLUP);
   pinMode(FIRE_LED, OUTPUT);
   pinMode(FIRE_FAN, OUTPUT);
   digitalWrite(FIRE_FAN, LOW);
@@ -26,9 +27,10 @@ void setup() {
 // the loop function runs over and over again forever
 
 void loop() {
-  start_seq = digitalRead(TRIGGER);
+  start_seq = !digitalRead(TRIGGER);
   
   if (start_seq) {
+    Serial.print("Starting sequence");
     unsigned long startMillis = millis();
     unsigned long ledMillis, legMillis;
     
